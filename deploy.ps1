@@ -1,18 +1,15 @@
-Write-Host "Building project..." -ForegroundColor Cyan
+Write-Host "Building project to docs/..." -ForegroundColor Cyan
 npm run build
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 Write-Host "Preparing GitHub Pages assets..." -ForegroundColor Cyan
-New-Item -Path dist/.nojekyll -ItemType File -Force | Out-Null
-Copy-Item -Path dist/index.html -Destination dist/404.html -Force
+New-Item -Path docs/.nojekyll -ItemType File -Force | Out-Null
+Copy-Item -Path docs/index.html -Destination docs/404.html -Force
 
-Write-Host "Deploying to gh-pages branch..." -ForegroundColor Cyan
-git -C dist init
-git -C dist checkout -b gh-pages
-git -C dist add -A
-git -C dist commit -m "Deploy Portfolio to GitHub Pages"
+Write-Host "Committing and pushing to main branch..." -ForegroundColor Cyan
+git add -A
+git commit -m "Deploy Portfolio update on main"
 $remoteUrl = git config --get remote.origin.url
-git -C dist push -f $remoteUrl gh-pages
-Remove-Item -Path dist/.git -Recurse -Force
+git push $remoteUrl main
 
-Write-Host "Deploy complete! Live at: https://blitto225.github.io/Portfolio-BGED225/" -ForegroundColor Green
+Write-Host "Deploy complete on main! Live at: https://blitto225.github.io/Portfolio-BGED225/" -ForegroundColor Green
