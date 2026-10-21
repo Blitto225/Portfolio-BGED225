@@ -7,8 +7,22 @@
 ```bash
 npm install
 npm run dev      # http://localhost:5173
-npm run build    # génère dist/ (Vercel le fait automatiquement)
+npm run build    # génère le site statique dans docs/
 ```
+
+## Déployer sur GitHub Pages
+
+Le site de ce dépôt est publié à l'adresse :
+
+**https://blitto225.github.io/Portfolio-BGED225/**
+
+GitHub Pages utilise la branche `main` et le dossier `/docs`. Pour reconstruire et publier depuis Windows :
+
+```powershell
+npm run deploy
+```
+
+Cette commande construit le site, met à jour `docs/`, puis pousse les changements sur `main`. GitHub Pages relance ensuite automatiquement la publication. Le domaine racine `https://blitto225.github.io` n'est pas l'adresse de ce dépôt ; il nécessite un dépôt distinct nommé `Blitto225.github.io`.
 
 ## Où modifier le contenu
 
