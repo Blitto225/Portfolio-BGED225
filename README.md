@@ -1,6 +1,6 @@
 # Portfolio — Blitto Enock
 
-Étudiant en L3 Génie logiciel à l'UTA. Site vitrine React + Vite + Framer Motion.
+Étudiant en licence de génie logiciel à l'UTA. Site vitrine React + Vite + Framer Motion.
 
 ## Lancer le projet
 
