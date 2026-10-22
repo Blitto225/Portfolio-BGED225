@@ -22,7 +22,7 @@ export const contact = {
 
 export const profile = {
   name: 'Blitto Enock',
-  level: 'L3 · Génie logiciel',
+  level: 'Licence · Génie logiciel',
 }
 
 export const skills = [

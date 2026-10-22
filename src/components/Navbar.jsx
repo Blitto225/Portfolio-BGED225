@@ -243,7 +243,7 @@ export default function Navbar() {
                 </motion.a>
 
                 <div className="drawer-meta-info">
-                  <span className="drawer-email">L3 · Génie logiciel</span>
+                  <span className="drawer-email">Niveau licence · Génie logiciel</span>
                   <div className="drawer-socials">
                     <a href={contact.github} target="_blank" rel="noreferrer">GitHub</a>
                   </div>

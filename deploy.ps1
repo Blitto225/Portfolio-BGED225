@@ -28,13 +28,13 @@ if ($workflowFiles.Count -gt 0) {
 }
 
 Write-Host "Committing the built site for GitHub Pages..." -ForegroundColor Cyan
-git add docs assets index.html 404.html .nojekyll README.md deploy.ps1 vite.config.js src/index.html
+git add docs assets index.html 404.html .nojekyll README.md deploy.ps1 vite.config.js src/index.html src/components/Hero.jsx src/components/Navbar.jsx src/data/portfolio.js
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-git diff --cached --quiet -- docs assets index.html 404.html .nojekyll README.md deploy.ps1 vite.config.js src/index.html
+git diff --cached --quiet -- docs assets index.html 404.html .nojekyll README.md deploy.ps1 vite.config.js src/index.html src/components/Hero.jsx src/components/Navbar.jsx src/data/portfolio.js
 $diffExitCode = $LASTEXITCODE
 if ($diffExitCode -eq 1) {
-    git commit --only -m "Deploy Portfolio to GitHub Pages" -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>" -- docs assets index.html 404.html .nojekyll README.md deploy.ps1 vite.config.js src/index.html
+    git commit --only -m "Deploy Portfolio to GitHub Pages" -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>" -- docs assets index.html 404.html .nojekyll README.md deploy.ps1 vite.config.js src/index.html src/components/Hero.jsx src/components/Navbar.jsx src/data/portfolio.js
     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 } elseif ($diffExitCode -ne 0) {
     exit $diffExitCode
