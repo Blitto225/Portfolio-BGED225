@@ -5,10 +5,10 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 Write-Host "Preparing GitHub Pages assets..." -ForegroundColor Cyan
 New-Item -Path docs/.nojekyll -ItemType File -Force | Out-Null
 Copy-Item -Path docs/index.html -Destination docs/404.html -Force
-New-Item -Path assets -ItemType Directory -Force | Out-Null
 Copy-Item -Path docs/index.html -Destination index.html -Force
 Copy-Item -Path docs/404.html -Destination 404.html -Force
 Copy-Item -Path docs/.nojekyll -Destination .nojekyll -Force
+New-Item -Path assets -ItemType Directory -Force | Out-Null
 Copy-Item -Path docs/assets/* -Destination assets -Recurse -Force
 
 Write-Host "Checking deployment branch..." -ForegroundColor Cyan
@@ -19,7 +19,15 @@ if ($branch -ne "main") {
     exit 1
 }
 
-Write-Host "Committing and pushing GitHub Pages files..." -ForegroundColor Cyan
+Write-Host "Checking GitHub Pages workflow source..." -ForegroundColor Cyan
+$workflowFiles = @(git ls-tree -r --name-only HEAD .github/workflows)
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+if ($workflowFiles.Count -gt 0) {
+    Write-Error "This repository uses a GitHub Actions workflow for Pages. Push the source changes and let that workflow publish docs/."
+    exit 1
+}
+
+Write-Host "Committing the built site for GitHub Pages..." -ForegroundColor Cyan
 git add docs assets index.html 404.html .nojekyll README.md deploy.ps1 vite.config.js src/index.html
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
