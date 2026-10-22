@@ -14,7 +14,7 @@ npm run build    # génère le site statique dans docs/
 
 Le site de ce dépôt est publié à l'adresse :
 
-**https://blitto225.github.io/Portfolio-BGED225/**
+**https://blitto225.github.io/portfolio-bged225/**
 
 GitHub Pages publie la racine de la branche `main`. La compilation est aussi conservée dans `/docs`. Pour reconstruire et publier depuis Windows :
 
@@ -22,7 +22,7 @@ GitHub Pages publie la racine de la branche `main`. La compilation est aussi con
 npm run deploy
 ```
 
-Cette commande construit le site dans `docs/`, copie les fichiers compilés à la racine, puis pousse les changements sur `main`. GitHub Pages relance ensuite automatiquement la publication. Le domaine racine `https://blitto225.github.io` n'est pas l'adresse de ce dépôt ; il nécessite un dépôt distinct nommé `Blitto225.github.io`.
+Cette commande construit le site dans `docs/`, copie les fichiers compilés à la racine, puis pousse les changements sur `main`. GitHub Pages relance ensuite automatiquement la publication. Le nom du dépôt doit rester `portfolio-bged225` pour conserver cette adresse.
 
 ## Où modifier le contenu
 

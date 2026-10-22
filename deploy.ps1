@@ -45,4 +45,4 @@ if ($diffExitCode -eq 1) {
 git push origin HEAD:main
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-Write-Host "Deployment pushed! GitHub Pages URL: https://blitto225.github.io/Portfolio-BGED225/" -ForegroundColor Green
+Write-Host "Deployment pushed! GitHub Pages URL: https://blitto225.github.io/portfolio-bged225/" -ForegroundColor Green
